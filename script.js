@@ -1,22 +1,61 @@
 /* Super Portfolio Logic */
 
 document.addEventListener('DOMContentLoaded', () => {
-    /* Particles.js Config (AK) */
+    /* Particles.js Config with Star Constellations (Enhanced) */
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: { value: 40, density: { enable: true, value_area: 800 } }, // Reduced from 80
-                color: { value: '#00f0ff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.8, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: '#00f0ff', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
+                number: { value: 120, density: { enable: true, value_area: 800 } }, // Increased from 40 to 120
+                color: { value: ['#00f0ff', '#0d59f2', '#ffffff', '#ff003c'] }, // Multiple colors
+                shape: { 
+                    type: ['circle', 'star'], // Added stars
+                    star: { nb_sides: 5 }
+                },
+                opacity: { 
+                    value: 0.9, 
+                    random: true,
+                    anim: { enable: true, speed: 0.5, opacity_min: 0.3, sync: false }
+                },
+                size: { 
+                    value: 4, 
+                    random: true,
+                    anim: { enable: true, speed: 2, size_min: 0.5, sync: false }
+                },
+                line_linked: { 
+                    enable: true, 
+                    distance: 200, 
+                    color: '#00f0ff', 
+                    opacity: 0.6, 
+                    width: 2,
+                    shadow: {
+                        enable: true,
+                        color: '#00f0ff',
+                        blur: 5
+                    }
+                },
+                move: { 
+                    enable: true, 
+                    speed: 2, 
+                    direction: 'none', 
+                    random: true, 
+                    straight: false, 
+                    out_mode: 'out', 
+                    bounce: false,
+                    attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: false, mode: 'bubble' }, onclick: { enable: false, mode: 'push' }, resize: true }, // Disabled interactions
-                modes: { bubble: { distance: 200, size: 6, duration: 2, opacity: 1, speed: 3 } }
+                events: { 
+                    onhover: { enable: true, mode: ['grab', 'bubble'] }, 
+                    onclick: { enable: true, mode: 'repulse' }, 
+                    resize: true 
+                },
+                modes: { 
+                    grab: { distance: 250, line_linked: { opacity: 1 } },
+                    bubble: { distance: 300, size: 8, duration: 2, opacity: 1, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 }
+                }
             },
             retina_detect: true
         });
