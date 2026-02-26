@@ -2,6 +2,8 @@
 
 A cyberpunk-themed portfolio website showcasing my journey as an AI/ML developer, hackathon enthusiast, and problem solver.
 
+🌐 **Live Demo**: [https://akshay-sahu-portfolio-mdsi.vercel.app](https://akshay-sahu-portfolio-mdsi.vercel.app)
+
 ## 🚀 Features
 
 - **Dynamic Navigation**: Auto-hiding header with active section highlighting
@@ -59,7 +61,9 @@ The contact form uses EmailJS. Configuration is already set up with:
 
 ## 🌐 Live Demo
 
-[Add your deployed URL here]
+**Production URL**: [https://akshay-sahu-portfolio-mdsi.vercel.app](https://akshay-sahu-portfolio-mdsi.vercel.app)
+
+**GitHub Repository**: [https://github.com/akshaykun-05/Akshay-Sahu-portfolio](https://github.com/akshaykun-05/Akshay-Sahu-portfolio)
 
 ## 📄 License
 
