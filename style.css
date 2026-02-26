@@ -172,10 +172,10 @@ header.scroll-up {
     transform: translateY(0);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     background: rgba(19, 24, 35, 0.95) !important;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
 }
 
-header:hover {
+header.scroll-up:hover {
     background: rgba(19, 24, 35, 0.9) !important;
     box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2);
 }
@@ -389,11 +389,11 @@ header button span {
 
 /* Card Enhancements (Enhanced with glow) */
 .glass-card {
-    background: rgba(20, 25, 35, 0.7);
-    backdrop-filter: blur(15px);
+    background: rgba(20, 25, 35, 0.75);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .glass-card:hover {
@@ -490,8 +490,8 @@ header button span {
 }
 
 .specialty-card-inner {
-    background: rgba(20, 25, 35, 0.6);
-    backdrop-filter: blur(12px);
+    background: rgba(20, 25, 35, 0.7);
+    backdrop-filter: blur(8px);
     border: 2px solid rgba(0, 240, 255, 0.1);
     border-radius: 16px;
     padding: 2rem;
@@ -616,8 +616,8 @@ header button span {
 
 /* Interest Cards */
 .interest-card {
-    background: rgba(20, 25, 35, 0.4);
-    backdrop-filter: blur(8px);
+    background: rgba(20, 25, 35, 0.6);
+    backdrop-filter: blur(6px);
     border: 1px solid rgba(0, 240, 255, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
@@ -706,13 +706,13 @@ header button span {
 }
 
 .flip-card-front {
-    background: linear-gradient(135deg, rgba(13, 89, 242, 0.1), rgba(0, 240, 255, 0.1));
-    backdrop-filter: blur(10px);
+    background: rgba(13, 89, 242, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .flip-card-back {
-    background: linear-gradient(135deg, rgba(255, 0, 60, 0.1), rgba(255, 215, 0, 0.1));
-    backdrop-filter: blur(10px);
+    background: rgba(255, 0, 60, 0.1);
+    backdrop-filter: blur(5px);
     transform: rotateY(180deg);
     border-color: rgba(255, 0, 60, 0.3);
 }

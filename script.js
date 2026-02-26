@@ -5,57 +5,56 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: { value: 60, density: { enable: true, value_area: 800 } }, // Reduced from 120 to 60
-                color: { value: ['#00f0ff', '#0d59f2', '#ffffff', '#ff003c'] }, // Multiple colors
+                number: { value: 40, density: { enable: true, value_area: 1000 } }, // Further reduced for performance
+                color: { value: ['#00f0ff', '#0d59f2', '#ffffff', '#ff003c'] },
                 shape: {
-                    type: ['circle', 'star'], // Added stars
+                    type: ['circle', 'star'],
                     star: { nb_sides: 5 }
                 },
                 opacity: {
-                    value: 0.9,
+                    value: 0.7, // Lowered for performance
                     random: true,
                     anim: { enable: true, speed: 0.5, opacity_min: 0.3, sync: false }
                 },
                 size: {
-                    value: 4,
+                    value: 3, // Smaller for performance
                     random: true,
-                    anim: { enable: true, speed: 2, size_min: 0.5, sync: false }
+                    anim: { enable: false } // Disabled size animation for performance
                 },
                 line_linked: {
                     enable: true,
-                    distance: 150,
+                    distance: 130, // Shorter distance for fewer lines
                     color: '#00f0ff',
-                    opacity: 0.4,
-                    width: 1.5,
+                    opacity: 0.3,
+                    width: 1,
                     shadow: {
-                        enable: false // Disabled for performance
+                        enable: false
                     }
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: 1.5, // Slower for consistency
                     direction: 'none',
                     random: true,
                     straight: false,
                     out_mode: 'out',
                     bounce: false,
-                    attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                    attract: { enable: false } // Disabled attract for performance
                 }
             },
             interactivity: {
                 detect_on: 'canvas',
                 events: {
-                    onhover: { enable: true, mode: ['grab', 'bubble'] },
+                    onhover: { enable: true, mode: 'grab' }, // Simplified
                     onclick: { enable: true, mode: 'repulse' },
                     resize: true
                 },
                 modes: {
-                    grab: { distance: 250, line_linked: { opacity: 1 } },
-                    bubble: { distance: 300, size: 8, duration: 2, opacity: 1, speed: 3 },
-                    repulse: { distance: 200, duration: 0.4 }
+                    grab: { distance: 180, line_linked: { opacity: 0.6 } },
+                    repulse: { distance: 150, duration: 0.4 }
                 }
             },
-            retina_detect: true
+            retina_detect: false // Disabled for performance on high-DPI screens
         });
     }
 
