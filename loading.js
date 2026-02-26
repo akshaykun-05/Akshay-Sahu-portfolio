@@ -29,9 +29,14 @@ const interactionHint = document.querySelector('.interaction-hint');
 
 // Mouse Movement Handler (disabled on mobile for performance)
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+let lastMouseMove = 0;
 
 if (!isMobile) {
     document.addEventListener('mousemove', (e) => {
+        const now = Date.now();
+        if (now - lastMouseMove < 16) return; // Throttle to ~60fps
+        lastMouseMove = now;
+        
         targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
         targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
     });
@@ -119,18 +124,18 @@ document.addEventListener('click', () => {
     }
 });
 
-// Create Embers
+// Create Embers (optimized for performance)
 function createEmbers() {
-    const emberCount = 15; // Reduced from 30 to 15 for better performance
+    const emberCount = 8; // Reduced for better performance
     for (let i = 0; i < emberCount; i++) {
         const ember = document.createElement('div');
         ember.className = 'ember';
         
         const left = Math.random() * 100;
         const delay = Math.random() * 5;
-        const duration = 2 + Math.random() * 5;
-        const size = 1 + Math.random() * 4;
-        const drift = (Math.random() * 100 - 50);
+        const duration = 3 + Math.random() * 4;
+        const size = 2 + Math.random() * 3;
+        const drift = (Math.random() * 80 - 40);
         
         ember.style.left = `${left}%`;
         ember.style.width = `${size}px`;
