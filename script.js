@@ -213,35 +213,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const successMessage = document.getElementById('success-message');
 
     if (contactForm) {
+        console.log("Contact form detected. Initializing listener.");
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
+            console.log("Form submit event triggered.");
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+
+            // UI Feedback
             submitBtn.innerHTML = '<span class="relative z-10">TRANSMITTING...</span>';
             submitBtn.disabled = true;
 
-            emailjs.send('service_uoyitub', 'template_npz79ig', {
+            // Prepare parameters
+            const templateParams = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 message: document.getElementById('message').value
-            })
-                .then(() => {
+            };
+
+            console.log("Transmission parameters prepared:", templateParams);
+
+            if (typeof emailjs === 'undefined') {
+                console.error("EmailJS SDK not found!");
+                submitBtn.innerHTML = '<span class="relative z-10 text-neon-red">SDK_ERROR</span>';
+                submitBtn.disabled = false;
+                return;
+            }
+
+            emailjs.send('service_uoyitub', 'template_npz79ig', templateParams)
+                .then((response) => {
+                    console.log("SUCCESS!", response.status, response.text);
                     successMessage.classList.remove('hidden');
                     successMessage.classList.add('animate-fade-in');
                     contactForm.reset();
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
+
                     setTimeout(() => {
                         successMessage.classList.add('hidden');
                         successMessage.classList.remove('animate-fade-in');
                     }, 5000);
                 })
-                .catch(() => {
-                    submitBtn.innerHTML = '<span class="relative z-10 text-neon-red">TRANSMISSION_FAILED</span>';
+                .catch((error) => {
+                    console.error("FAILED...", error);
+                    // Show specific error on button
+                    const errorMsg = error.text || error.message || "FAILED";
+                    submitBtn.innerHTML = `<span class="relative z-10 text-neon-red">ERR: ${errorMsg.substring(0, 10)}</span>`;
+
                     setTimeout(() => {
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
-                    }, 3000);
+                    }, 4000);
                 });
         });
     }
