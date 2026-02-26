@@ -16,9 +16,9 @@
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
     box-shadow: 0 0 10px var(--neon-blue);
+    will-change: transform, left, top;
+    transform: translate(-50%, -50%) translateZ(0);
 }
 
 .cursor-outline {
@@ -29,9 +29,10 @@
     position: fixed;
     pointer-events: none;
     z-index: 9998;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translateZ(0);
     transition: all 0.2s ease-out;
     box-shadow: 0 0 20px rgba(255, 0, 60, 0.6), inset 0 0 20px rgba(255, 0, 60, 0.3);
+    will-change: transform, left, top;
     animation: cursor-pulse 2s ease-in-out infinite;
 }
 
@@ -59,6 +60,8 @@
     z-index: 20;
     pointer-events: none;
     animation: scan-line 8s linear infinite;
+    will-change: top;
+    transform: translateZ(0);
 }
 
 @keyframes scan-line {
@@ -101,6 +104,8 @@
     filter: drop-shadow(0 0 40px rgba(255, 0, 38, 0.4)) drop-shadow(0 0 80px rgba(255, 0, 38, 0.2));
     transition: filter 1s ease, transform 1s ease;
     animation: dragon-breathe 6s ease-in-out infinite;
+    will-change: filter, transform;
+    transform: translateZ(0);
 }
 
 @keyframes dragon-breathe {
@@ -313,7 +318,9 @@ header button span {
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+    transform: translateZ(0);
 }
 
 .reveal.active {
@@ -444,7 +451,9 @@ header button span {
     background: radial-gradient(circle, #ffffff, #00f0ff);
     border-radius: 50%;
     box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff, 0 0 45px #00f0ff;
-    animation: pulse-skill 1.5s ease-in-out infinite;
+    animation: pulse-skill 2s ease-in-out infinite;
+    will-change: box-shadow;
+    transform: translateY(-50%) translateZ(0);
 }
 
 @keyframes shimmer {

@@ -61,109 +61,123 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* Custom Cursor (AK) */
+    /* Optimized Custom Cursor (AK) */
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
 
     if (cursorDot && cursorOutline) {
+        let mouseX = 0, mouseY = 0;
+        let dotX = 0, dotY = 0;
+        let outlineX = 0, outlineY = 0;
+
         window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }, { passive: true });
 
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
+        const animateCursor = () => {
+            // Smooth dot follow
+            dotX += (mouseX - dotX) * 1;
+            dotY += (mouseY - dotY) * 1;
+            cursorDot.style.transform = `translate(${dotX}px, ${dotY}px) translateZ(0)`;
 
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
+            // Smooth outline follow
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+            cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translateZ(0)`;
+
+            requestAnimationFrame(animateCursor);
+        };
+        requestAnimationFrame(animateCursor);
     }
 
-    /* Eye Tracking Logic (NW) */
+    /* Optimized Eye Tracking (NW) */
     const dragonEye = document.querySelector('.dragon-eye');
     if (dragonEye) {
+        let targetX = 0, targetY = 0;
+        let currentX = 0, currentY = 0;
+
         window.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-            dragonEye.style.transform = `translate(${x}px, ${y}px)`;
-        });
+            targetX = (e.clientX / window.innerWidth - 0.5) * 20;
+            targetY = (e.clientY / window.innerHeight - 0.5) * 20;
+        }, { passive: true });
+
+        const animateEye = () => {
+            currentX += (targetX - currentX) * 0.1;
+            currentY += (targetY - currentY) * 0.1;
+            dragonEye.style.transform = `translate(${currentX}px, ${currentY}px) translateZ(0)`;
+            requestAnimationFrame(animateEye);
+        };
+        requestAnimationFrame(animateEye);
     }
 
-    /* Dynamic Header on Scroll */
+    /* Optimized Dynamic Header & Active Links */
     const header = document.querySelector('header');
     const navLinks = document.querySelectorAll('header nav a');
     const sections = document.querySelectorAll('section[id]');
     let lastScroll = 0;
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScroll = window.pageYOffset;
 
-        // Header hide/show logic
-        if (currentScroll <= 0) {
-            header.classList.remove('scroll-up');
-            header.classList.remove('scroll-down');
-        } else if (currentScroll > lastScroll && currentScroll > 100) {
-            header.classList.remove('scroll-up');
-            header.classList.add('scroll-down');
-        } else if (currentScroll < lastScroll) {
-            header.classList.remove('scroll-down');
-            header.classList.add('scroll-up');
+                // Header logic
+                if (currentScroll <= 0) {
+                    header.classList.remove('scroll-up', 'scroll-down');
+                } else if (currentScroll > lastScroll && currentScroll > 100) {
+                    header.classList.remove('scroll-up');
+                    header.classList.add('scroll-down');
+                } else if (currentScroll < lastScroll) {
+                    header.classList.remove('scroll-down');
+                    header.classList.add('scroll-up');
+                }
+
+                lastScroll = currentScroll;
+
+                // Active section highlighting
+                let current = '';
+                sections.forEach(section => {
+                    if (currentScroll >= (section.offsetTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+                });
+
+                ticking = false;
+            });
+            ticking = true;
         }
+    }, { passive: true });
 
-        lastScroll = currentScroll;
-
-        // Active section highlighting
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (currentScroll >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    /* Scroll Reveal and Dragon Path Animation (AK) */
+    /* Optimized Scroll Reveal with IntersectionObserver */
     const revealElements = document.querySelectorAll('.reveal');
 
-    const handleScroll = () => {
-        const triggerBottom = window.innerHeight * 0.9;
-        const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-
-
-
-        revealElements.forEach(el => {
-            const elTop = el.getBoundingClientRect().top;
-            if (elTop < triggerBottom) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
                 el.classList.add('active');
 
-                // Animate skill bars when they come into view
+                // Animate skill bars
                 if (el.classList.contains('skill-item')) {
                     const skillBar = el.querySelector('.skill-bar');
                     const skillPercentage = el.querySelector('.skill-percentage');
 
                     if (skillBar && !skillBar.classList.contains('animated')) {
                         const percent = skillBar.getAttribute('data-percent');
-
-                        // Animate the bar width
                         setTimeout(() => {
                             skillBar.style.width = percent + '%';
                             skillBar.classList.add('animated');
                         }, 200);
 
-                        // Animate the percentage counter
                         let currentPercent = 0;
                         const targetPercent = parseInt(percent);
-                        const increment = targetPercent / 60; // 60 frames for smooth animation
-
+                        const increment = targetPercent / 60;
                         const counter = setInterval(() => {
                             currentPercent += increment;
                             if (currentPercent >= targetPercent) {
@@ -174,12 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         }, 30);
                     }
                 }
+                revealObserver.unobserve(el);
             }
         });
-    };
+    }, { threshold: 0.15 });
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    revealElements.forEach(el => revealObserver.observe(el));
 
     /* Smooth Scroll for Links */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -187,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
@@ -205,49 +218,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-
-            // Show loading state
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<span class="relative z-10">TRANSMITTING...</span>';
             submitBtn.disabled = true;
 
-            // Send email using EmailJS
             emailjs.send('service_uoyitub', 'template_npz79ig', {
-                name: formData.name,
-                email: formData.email,
-                message: formData.message
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
             })
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
-
-                    // Show success message
+                .then(() => {
                     successMessage.classList.remove('hidden');
                     successMessage.classList.add('animate-fade-in');
-
-                    // Reset form
                     contactForm.reset();
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-
-                    // Hide success message after 5 seconds
                     setTimeout(() => {
                         successMessage.classList.add('hidden');
                         successMessage.classList.remove('animate-fade-in');
                     }, 5000);
-                }, function (error) {
-                    console.log('FAILED...', error);
-
-                    // Show error message
+                })
+                .catch(() => {
                     submitBtn.innerHTML = '<span class="relative z-10 text-neon-red">TRANSMISSION_FAILED</span>';
-
                     setTimeout(() => {
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
@@ -255,4 +248,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+});
 });
