@@ -27,39 +27,44 @@ const circleRings = document.querySelectorAll('.circle-ring');
 const embersContainer = document.getElementById('embers-container');
 const interactionHint = document.querySelector('.interaction-hint');
 
-// Mouse Movement Handler
-document.addEventListener('mousemove', (e) => {
-    targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-    targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
-});
+// Mouse Movement Handler (disabled on mobile for performance)
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-// Smooth Mouse Interpolation
+if (!isMobile) {
+    document.addEventListener('mousemove', (e) => {
+        targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
+        targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
+    });
+}
+
+// Smooth Mouse Interpolation with throttling
+let rafId = null;
 function updateMousePosition() {
     mouseX += (targetMouseX - mouseX) * 0.1;
     mouseY += (targetMouseY - mouseY) * 0.1;
     
-    // Apply parallax transforms
+    // Apply parallax transforms with GPU acceleration
     if (parallaxBg) {
-        parallaxBg.style.transform = `translate(${mouseX * 15}px, ${mouseY * 15}px)`;
+        parallaxBg.style.transform = `translate3d(${mouseX * 15}px, ${mouseY * 15}px, 0)`;
     }
     
     if (dragonContainer) {
-        dragonContainer.style.transform = `translate(calc(-50% + ${mouseX * 40}px), calc(-50% + ${mouseY * 40}px))`;
+        dragonContainer.style.transform = `translate3d(calc(-50% + ${mouseX * 40}px), calc(-50% + ${mouseY * 40}px), 0)`;
     }
     
     if (titleContainer) {
-        titleContainer.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+        titleContainer.style.transform = `translate3d(${mouseX * 20}px, ${mouseY * 20}px, 0)`;
     }
     
     if (contentWrapper) {
-        contentWrapper.style.transform = `translate(${mouseX * 10}px, ${mouseY * 10}px)`;
+        contentWrapper.style.transform = `translate3d(${mouseX * 10}px, ${mouseY * 10}px, 0)`;
     }
     
     if (magicCircle) {
-        magicCircle.style.transform = `translate(${mouseX * 70}px, ${mouseY * 70}px) perspective(1000px) rotateX(75deg)`;
+        magicCircle.style.transform = `translate3d(${mouseX * 70}px, ${mouseY * 70}px, 0) perspective(1000px) rotateX(75deg)`;
     }
     
-    requestAnimationFrame(updateMousePosition);
+    rafId = requestAnimationFrame(updateMousePosition);
 }
 
 updateMousePosition();
@@ -116,7 +121,7 @@ document.addEventListener('click', () => {
 
 // Create Embers
 function createEmbers() {
-    const emberCount = 30; // Reduced from 50 to improve performance
+    const emberCount = 15; // Reduced from 30 to 15 for better performance
     for (let i = 0; i < emberCount; i++) {
         const ember = document.createElement('div');
         ember.className = 'ember';

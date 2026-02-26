@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
+                number: { value: 40, density: { enable: true, value_area: 800 } }, // Reduced from 80
                 color: { value: '#00f0ff' },
                 shape: { type: 'circle' },
                 opacity: { value: 0.8, random: true },
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'bubble' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                events: { onhover: { enable: false, mode: 'bubble' }, onclick: { enable: false, mode: 'push' }, resize: true }, // Disabled interactions
                 modes: { bubble: { distance: 200, size: 6, duration: 2, opacity: 1, speed: 3 } }
             },
             retina_detect: true
