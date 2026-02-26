@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: { value: 40, density: { enable: true, value_area: 1000 } }, // Further reduced for performance
+                number: { value: 25, density: { enable: true, value_area: 1200 } }, // Extreme reduction
                 color: { value: ['#00f0ff', '#0d59f2', '#ffffff', '#ff003c'] },
                 shape: {
                     type: ['circle', 'star'],
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(el);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.2 });
 
     revealElements.forEach(el => revealObserver.observe(el));
 

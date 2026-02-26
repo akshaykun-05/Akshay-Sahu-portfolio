@@ -91,12 +91,10 @@
     0%,
     100% {
         opacity: 0.08;
-        text-shadow: 0 0 30px rgba(13, 89, 242, 0.6), 0 0 60px rgba(13, 89, 242, 0.3);
     }
 
     50% {
-        opacity: 0.12;
-        text-shadow: 0 0 40px rgba(13, 89, 242, 0.8), 0 0 80px rgba(13, 89, 242, 0.5);
+        opacity: 0.15;
     }
 }
 
@@ -133,11 +131,11 @@
 
     0%,
     100% {
-        box-shadow: 0 0 25px #ffd700, 0 0 50px #ff0026, 0 0 75px #ffd700;
+        box-shadow: 0 0 15px #ffd700, 0 0 30px #ff0026;
     }
 
     50% {
-        box-shadow: 0 0 35px #ffd700, 0 0 70px #ff0026, 0 0 100px #ffd700;
+        box-shadow: 0 0 25px #ffd700, 0 0 50px #ff0026;
     }
 }
 
@@ -183,7 +181,6 @@ header.scroll-up:hover {
 header nav a {
     position: relative;
     transition: all 0.3s ease;
-    animation: bounce-nav 2s ease-in-out infinite;
 }
 
 header nav a:nth-child(1) {
@@ -389,8 +386,8 @@ header button span {
 
 /* Card Enhancements (Enhanced with glow) */
 .glass-card {
-    background: rgba(20, 25, 35, 0.75);
-    backdrop-filter: blur(10px);
+    background: rgba(20, 25, 35, 0.9);
+    /* More opaque, no blur */
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -429,14 +426,8 @@ header button span {
 }
 
 .skill-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-    animation: shimmer 2s infinite;
+    display: none;
+    /* Disabled shimmer */
 }
 
 .skill-bar::after {
@@ -490,8 +481,8 @@ header button span {
 }
 
 .specialty-card-inner {
-    background: rgba(20, 25, 35, 0.7);
-    backdrop-filter: blur(8px);
+    background: rgba(20, 25, 35, 0.85);
+    /* More opaque, no blur */
     border: 2px solid rgba(0, 240, 255, 0.1);
     border-radius: 16px;
     padding: 2rem;
@@ -616,8 +607,8 @@ header button span {
 
 /* Interest Cards */
 .interest-card {
-    background: rgba(20, 25, 35, 0.6);
-    backdrop-filter: blur(6px);
+    background: rgba(20, 25, 35, 0.8);
+    /* More opaque, no blur */
     border: 1px solid rgba(0, 240, 255, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
@@ -706,13 +697,11 @@ header button span {
 }
 
 .flip-card-front {
-    background: rgba(13, 89, 242, 0.1);
-    backdrop-filter: blur(5px);
+    background: rgba(13, 89, 242, 0.2);
 }
 
 .flip-card-back {
-    background: rgba(255, 0, 60, 0.1);
-    backdrop-filter: blur(5px);
+    background: rgba(255, 0, 60, 0.2);
     transform: rotateY(180deg);
     border-color: rgba(255, 0, 60, 0.3);
 }
@@ -765,25 +754,32 @@ header button span {
 }
 
 .cyber-grid {
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-image:
         linear-gradient(rgba(13, 89, 242, 0.1) 2px, transparent 2px),
         linear-gradient(90deg, rgba(13, 89, 242, 0.1) 2px, transparent 2px);
     background-size: 30px 30px;
-    animation: grid-pulse 4s ease-in-out infinite;
+    animation: grid-fade 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+    will-change: opacity;
 }
 
-@keyframes grid-pulse {
+@keyframes grid-fade {
 
     0%,
     100% {
-        background-image:
-            linear-gradient(rgba(13, 89, 242, 0.1) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(13, 89, 242, 0.1) 2px, transparent 2px);
+        opacity: 0.5;
     }
 
     50% {
-        background-image:
-            linear-gradient(rgba(13, 89, 242, 0.15) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(13, 89, 242, 0.15) 2px, transparent 2px);
+        opacity: 1;
     }
 }
