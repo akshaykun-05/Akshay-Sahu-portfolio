@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            emailjs.send('service_uoyitub', 'template_npz79ig', templateParams)
+            emailjs.send('service_uoyitub', 'template_jn19jwc', templateParams)
                 .then((response) => {
                     console.log("SUCCESS!", response.status, response.text);
                     successMessage.classList.remove('hidden');
