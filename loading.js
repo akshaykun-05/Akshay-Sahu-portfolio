@@ -124,18 +124,18 @@ document.addEventListener('click', () => {
     }
 });
 
-// Create Embers (optimized for performance)
+// Create Embers with increased particles
 function createEmbers() {
-    const emberCount = 8; // Reduced for better performance
+    const emberCount = 30; // Increased for better visual effect
     for (let i = 0; i < emberCount; i++) {
         const ember = document.createElement('div');
         ember.className = 'ember';
         
         const left = Math.random() * 100;
         const delay = Math.random() * 5;
-        const duration = 3 + Math.random() * 4;
-        const size = 2 + Math.random() * 3;
-        const drift = (Math.random() * 80 - 40);
+        const duration = 2 + Math.random() * 5;
+        const size = 1 + Math.random() * 5;
+        const drift = (Math.random() * 120 - 60);
         
         ember.style.left = `${left}%`;
         ember.style.width = `${size}px`;
