@@ -61,9 +61,13 @@ The contact form uses EmailJS. Configuration is already set up with:
 
 ## 🌐 Live Demo
 
-**Production URL**: [https://akshay-sahu-portfolio-mdsi.vercel.app](https://akshay-sahu-portfolio-mdsi.vercel.app)
+**Primary (Vercel)**: [https://akshay-sahu-portfolio-mdsi.vercel.app](https://akshay-sahu-portfolio-mdsi.vercel.app)
+
+**GitHub Pages**: [https://akshaykun-05.github.io/Akshay-Sahu-portfolio/](https://akshaykun-05.github.io/Akshay-Sahu-portfolio/)
 
 **GitHub Repository**: [https://github.com/akshaykun-05/Akshay-Sahu-portfolio](https://github.com/akshaykun-05/Akshay-Sahu-portfolio)
+
+> **Note**: Both URLs host the same portfolio. Vercel is recommended for better performance and faster loading times.
 
 ## 📄 License
 
