@@ -191,10 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Send email using EmailJS
             emailjs.send('service_uoyitub', 'template_npz79ig', {
-                from_name: formData.name,
-                from_email: formData.email,
-                message: formData.message,
-                to_email: 'akshayakumar8104@gmail.com'
+                name: formData.name,
+                email: formData.email,
+                message: formData.message
             })
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);

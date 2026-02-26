@@ -116,7 +116,7 @@ document.addEventListener('click', () => {
 
 // Create Embers
 function createEmbers() {
-    const emberCount = 50;
+    const emberCount = 30; // Reduced from 50 to improve performance
     for (let i = 0; i < emberCount; i++) {
         const ember = document.createElement('div');
         ember.className = 'ember';
