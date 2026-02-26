@@ -36,7 +36,7 @@ if (!isMobile) {
         const now = Date.now();
         if (now - lastMouseMove < 16) return; // Throttle to ~60fps
         lastMouseMove = now;
-        
+
         targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
         targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
     });
@@ -47,28 +47,28 @@ let rafId = null;
 function updateMousePosition() {
     mouseX += (targetMouseX - mouseX) * 0.1;
     mouseY += (targetMouseY - mouseY) * 0.1;
-    
+
     // Apply parallax transforms with GPU acceleration
     if (parallaxBg) {
         parallaxBg.style.transform = `translate3d(${mouseX * 15}px, ${mouseY * 15}px, 0)`;
     }
-    
+
     if (dragonContainer) {
         dragonContainer.style.transform = `translate3d(calc(-50% + ${mouseX * 40}px), calc(-50% + ${mouseY * 40}px), 0)`;
     }
-    
+
     if (titleContainer) {
         titleContainer.style.transform = `translate3d(${mouseX * 20}px, ${mouseY * 20}px, 0)`;
     }
-    
+
     if (contentWrapper) {
         contentWrapper.style.transform = `translate3d(${mouseX * 10}px, ${mouseY * 10}px, 0)`;
     }
-    
+
     if (magicCircle) {
         magicCircle.style.transform = `translate3d(${mouseX * 70}px, ${mouseY * 70}px, 0) perspective(1000px) rotateX(75deg)`;
     }
-    
+
     rafId = requestAnimationFrame(updateMousePosition);
 }
 
@@ -80,7 +80,7 @@ document.addEventListener('mousedown', () => {
         completeLoading();
         return;
     }
-    
+
     isAccelerating = true;
     dragonImage.classList.add('accelerating');
     mainTitle.classList.add('accelerating');
@@ -93,7 +93,7 @@ document.addEventListener('mousedown', () => {
 
 document.addEventListener('mouseup', () => {
     if (loadingComplete) return;
-    
+
     isAccelerating = false;
     dragonImage.classList.remove('accelerating');
     mainTitle.classList.remove('accelerating');
@@ -106,7 +106,7 @@ document.addEventListener('mouseup', () => {
 
 document.addEventListener('mouseleave', () => {
     if (loadingComplete) return;
-    
+
     isAccelerating = false;
     dragonImage.classList.remove('accelerating');
     mainTitle.classList.remove('accelerating');
@@ -126,24 +126,24 @@ document.addEventListener('click', () => {
 
 // Create Embers with increased particles
 function createEmbers() {
-    const emberCount = 30; // Increased for better visual effect
+    const emberCount = 15; // Reduced from 30 to 15 for a cleaner look
     for (let i = 0; i < emberCount; i++) {
         const ember = document.createElement('div');
         ember.className = 'ember';
-        
+
         const left = Math.random() * 100;
         const delay = Math.random() * 5;
         const duration = 2 + Math.random() * 5;
         const size = 1 + Math.random() * 5;
         const drift = (Math.random() * 120 - 60);
-        
+
         ember.style.left = `${left}%`;
         ember.style.width = `${size}px`;
         ember.style.height = `${size}px`;
         ember.style.animationDelay = `${delay}s`;
         ember.style.animationDuration = `${duration}s`;
         ember.style.setProperty('--drift', `${drift}px`);
-        
+
         embersContainer.appendChild(ember);
     }
 }
@@ -169,11 +169,11 @@ function updateEmbersSpeed() {
 function updateProgress() {
     const intervalTime = isAccelerating ? 20 : 50; // Faster intervals
     const progressAmount = isAccelerating ? 3 : 1.5; // Larger increments
-    
+
     if (progress < 99) {
         progress += Math.random() * progressAmount;
         progress = Math.min(99, progress);
-        
+
         const displayProgress = Math.floor(progress);
         percentage.textContent = displayProgress;
         progressBar.style.width = `${progress}%`;
@@ -182,14 +182,14 @@ function updateProgress() {
         percentage.textContent = '100';
         progressBar.style.width = '100%';
         loadingComplete = true;
-        
+
         // Change hint text
         interactionHint.textContent = 'CLICK ANYWHERE TO CONTINUE';
         interactionHint.style.animation = 'pulse 0.8s ease-in-out infinite';
         interactionHint.style.color = 'rgba(255, 0, 0, 0.8)';
         interactionHint.style.fontSize = '12px';
     }
-    
+
     setTimeout(updateProgress, intervalTime);
 }
 
@@ -201,9 +201,9 @@ function updateLogs() {
             item.classList.add('active');
         }
     });
-    
+
     activeLogIndex = (activeLogIndex + 1) % logItems.length;
-    
+
     const logInterval = isAccelerating ? 150 : 600; // Faster log updates
     setTimeout(updateLogs, logInterval);
 }
@@ -213,7 +213,7 @@ function completeLoading() {
     // Fade out
     document.getElementById('loading-screen').style.transition = 'opacity 0.5s ease';
     document.getElementById('loading-screen').style.opacity = '0';
-    
+
     setTimeout(() => {
         window.location.href = 'portfolio.html';
     }, 500);

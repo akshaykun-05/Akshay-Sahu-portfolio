@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: { value: 120, density: { enable: true, value_area: 800 } }, // Increased from 40 to 120
+                number: { value: 60, density: { enable: true, value_area: 800 } }, // Reduced from 120 to 60
                 color: { value: ['#00f0ff', '#0d59f2', '#ffffff', '#ff003c'] }, // Multiple colors
                 shape: { 
                     type: ['circle', 'star'], // Added stars
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 line_linked: { 
                     enable: true, 
-                    distance: 200, 
+                    distance: 150, 
                     color: '#00f0ff', 
-                    opacity: 0.6, 
-                    width: 2,
+                    opacity: 0.4, 
+                    width: 1.5,
                     shadow: {
                         enable: true,
                         color: '#00f0ff',
