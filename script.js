@@ -28,9 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     opacity: 0.4,
                     width: 1.5,
                     shadow: {
-                        enable: true,
-                        color: '#00f0ff',
-                        blur: 5
+                        enable: false // Disabled for performance
                     }
                 },
                 move: {
