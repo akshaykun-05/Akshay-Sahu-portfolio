@@ -7,25 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
             particles: {
                 number: { value: 60, density: { enable: true, value_area: 800 } }, // Reduced from 120 to 60
                 color: { value: ['#00f0ff', '#0d59f2', '#ffffff', '#ff003c'] }, // Multiple colors
-                shape: { 
+                shape: {
                     type: ['circle', 'star'], // Added stars
                     star: { nb_sides: 5 }
                 },
-                opacity: { 
-                    value: 0.9, 
+                opacity: {
+                    value: 0.9,
                     random: true,
                     anim: { enable: true, speed: 0.5, opacity_min: 0.3, sync: false }
                 },
-                size: { 
-                    value: 4, 
+                size: {
+                    value: 4,
                     random: true,
                     anim: { enable: true, speed: 2, size_min: 0.5, sync: false }
                 },
-                line_linked: { 
-                    enable: true, 
-                    distance: 150, 
-                    color: '#00f0ff', 
-                    opacity: 0.4, 
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00f0ff',
+                    opacity: 0.4,
                     width: 1.5,
                     shadow: {
                         enable: true,
@@ -33,25 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         blur: 5
                     }
                 },
-                move: { 
-                    enable: true, 
-                    speed: 2, 
-                    direction: 'none', 
-                    random: true, 
-                    straight: false, 
-                    out_mode: 'out', 
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
                     bounce: false,
                     attract: { enable: true, rotateX: 600, rotateY: 1200 }
                 }
             },
             interactivity: {
                 detect_on: 'canvas',
-                events: { 
-                    onhover: { enable: true, mode: ['grab', 'bubble'] }, 
-                    onclick: { enable: true, mode: 'repulse' }, 
-                    resize: true 
+                events: {
+                    onhover: { enable: true, mode: ['grab', 'bubble'] },
+                    onclick: { enable: true, mode: 'repulse' },
+                    resize: true
                 },
-                modes: { 
+                modes: {
                     grab: { distance: 250, line_linked: { opacity: 1 } },
                     bubble: { distance: 300, size: 8, duration: 2, opacity: 1, speed: 3 },
                     repulse: { distance: 200, duration: 0.4 }
@@ -133,46 +133,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Scroll Reveal and Dragon Path Animation (AK) */
     const revealElements = document.querySelectorAll('.reveal');
-    const scrollDragonPath = document.getElementById('scroll-dragon-path');
 
     const handleScroll = () => {
         const triggerBottom = window.innerHeight * 0.9;
         const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
 
-        // Animate scrolling dragon
-        if (scrollDragonPath) {
-            const draw = scrollPercent * 2000;
-            scrollDragonPath.style.strokeDashoffset = 2000 - draw;
 
-            const moveX = scrollPercent * 100 - 50;
-            const moveY = scrollPercent * 150 - 75;
-            scrollDragonPath.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + scrollPercent * 0.2})`;
-        }
 
         revealElements.forEach(el => {
             const elTop = el.getBoundingClientRect().top;
             if (elTop < triggerBottom) {
                 el.classList.add('active');
-                
+
                 // Animate skill bars when they come into view
                 if (el.classList.contains('skill-item')) {
                     const skillBar = el.querySelector('.skill-bar');
                     const skillPercentage = el.querySelector('.skill-percentage');
-                    
+
                     if (skillBar && !skillBar.classList.contains('animated')) {
                         const percent = skillBar.getAttribute('data-percent');
-                        
+
                         // Animate the bar width
                         setTimeout(() => {
                             skillBar.style.width = percent + '%';
                             skillBar.classList.add('animated');
                         }, 200);
-                        
+
                         // Animate the percentage counter
                         let currentPercent = 0;
                         const targetPercent = parseInt(percent);
                         const increment = targetPercent / 60; // 60 frames for smooth animation
-                        
+
                         const counter = setInterval(() => {
                             currentPercent += increment;
                             if (currentPercent >= targetPercent) {
@@ -212,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const successMessage = document.getElementById('success-message');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Get form data
@@ -234,34 +225,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 email: formData.email,
                 message: formData.message
             })
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                
-                // Show success message
-                successMessage.classList.remove('hidden');
-                successMessage.classList.add('animate-fade-in');
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
 
-                // Reset form
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+                    // Show success message
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('animate-fade-in');
 
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                    successMessage.classList.remove('animate-fade-in');
-                }, 5000);
-            }, function(error) {
-                console.log('FAILED...', error);
-                
-                // Show error message
-                submitBtn.innerHTML = '<span class="relative z-10 text-neon-red">TRANSMISSION_FAILED</span>';
-                
-                setTimeout(() => {
+                    // Reset form
+                    contactForm.reset();
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                }, 3000);
-            });
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                        successMessage.classList.remove('animate-fade-in');
+                    }, 5000);
+                }, function (error) {
+                    console.log('FAILED...', error);
+
+                    // Show error message
+                    submitBtn.innerHTML = '<span class="relative z-10 text-neon-red">TRANSMISSION_FAILED</span>';
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                });
         });
     }
 });
