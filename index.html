@@ -3,11 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading - Akshay Sahu Portfolio</title>
+        <title>Akshay Sahu — Full-Stack Developer & 3D Artist | Portfolio</title>
+        <meta name="description" content="Akshay Sahu — full-stack developer and 3D artist. Portfolio showcasing web apps, 3D art, and interactive experiences. Explore projects, contact info, and services.">
+        <meta name="author" content="Akshay Sahu">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://akshaysahu.online/">
+        <link rel="alternate" hreflang="en" href="https://akshaysahu.online/">
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Akshay Sahu — Full-Stack Developer & 3D Artist">
+        <meta property="og:description" content="Portfolio of Akshay Sahu — web apps, 3D art, and interactive experiences. Contact for freelance and collaborations.">
+        <meta property="og:url" content="https://akshaysahu.online/">
+        <meta property="og:site_name" content="AkshaySahu.Online">
+        <meta property="og:image" content="https://akshaysahu.online/dragon.jpg">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Akshay Sahu — Full-Stack Developer & 3D Artist">
+        <meta name="twitter:description" content="Portfolio of Akshay Sahu — web apps, 3D art, and interactive experiences.">
+        <meta name="twitter:image" content="https://akshaysahu.online/dragon.jpg">
+
+        <!-- Structured data (JSON-LD) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Akshay Sahu",
+            "url": "https://akshaysahu.online/",
+            "jobTitle": "Full-Stack Developer & 3D Artist",
+            "description": "Full-stack developer and 3D artist. Portfolio showcasing web applications, 3D artwork, and interactive demos.",
+            "sameAs": []
+        }
+        </script>
+        <style>
+        .visually-hidden{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
+        </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="loading.css">
+    <link rel="preload" as="image" href="dragon.jpg">
+    <link rel="preload" href="loading.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="loading.css"></noscript>
+    <meta name="theme-color" content="#0a0b10">
 </head>
 <body>
     <!-- Loading Screen Container -->
@@ -17,7 +55,9 @@
         
         <!-- Dragon Image with Parallax -->
         <div class="dragon-container" id="dragon-container">
-            <img src="dragon.jpg" alt="Dragon" class="dragon-image" id="dragon-image" onerror="console.error('Dragon image failed to load')">
+              <img src="dragon.jpg" alt="Dragon artwork by Akshay Sahu" loading="lazy" width="1200" height="800" class="dragon-image" id="dragon-image" onerror="console.error('Dragon image failed to load')"
+                  srcset="dragon-800.webp 800w, dragon-1200.webp 1200w, dragon.jpg 1200w"
+                  sizes="(max-width: 900px) 80vw, 1200px">
         </div>
         
         <!-- Embers/Particles -->
@@ -87,6 +127,13 @@
         <div class="interaction-hint">CLICK AND HOLD TO ACCELERATE</div>
     </div>
 
-    <script src="loading.js"></script>
+    <!-- SEO: hidden textual content for crawlers & accessibility -->
+    <div class="visually-hidden" aria-hidden="false">
+        <h2>Akshay Sahu — Portfolio</h2>
+        <p>Akshay Sahu is a full-stack developer and 3D artist creating interactive web experiences, 3D visualizations, and performance-oriented applications. Key skills include JavaScript, TypeScript, WebGL, Three.js, React, Node.js, and 3D asset creation.</p>
+        <p>Projects include web apps, real-time visualizations, and portfolio showcases. View the portfolio page at https://akshaysahu.online/portfolio.html or contact via the site for freelance opportunities.</p>
+    </div>
+
+    <script src="loading.js" defer></script>
 </body>
 </html>
