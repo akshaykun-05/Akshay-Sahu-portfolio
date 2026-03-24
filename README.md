@@ -76,6 +76,6 @@ The contact form uses EmailJS. Configuration is already set up with:
 ## 🔗 Connect
 
 - LinkedIn: [akshay-sahu05](https://linkedin.com/in/akshay-sahu05)
-- GitHub: [AkshaySahu05](https://github.com/AkshaySahu05)
+- GitHub: [AkshaySahu05](https://github.com/akshaykun-05)
 - Twitter: [@AkshaySahu005](https://x.com/AkshaySahu005)
 - Email: akshayakumar8104@gmail.com

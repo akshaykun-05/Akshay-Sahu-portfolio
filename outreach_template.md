@@ -9,7 +9,7 @@ I'm Akshay Sahu — a full-stack developer and AI/3D artist. I recently publishe
 Quick highlights:
 - Practical walkthrough and code samples
 - Hosted demo: https://akshaysahu.online/portfolio.html#ConceptForgeAI
-- Source code: https://github.com/AkshaySahu05
+- Source code: https://github.com/akshaykun-05
 
 Would you consider linking to or mentioning this project in your [page/post/resource]? Happy to provide a short blurb or adapt the post to fit your audience.
 
