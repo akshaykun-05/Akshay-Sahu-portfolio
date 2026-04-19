@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshay Sahu | AI & Cloud Developer | Japanese Cyberpunk Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Akshay Sahu, AI & Cloud Developer and Hackathon Finalist. Inspired by Japanese cyberpunk and anime aesthetics.">
+
+    <!-- CSS Linking -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div id="particles-js"></div>
+    <div class="background-glow"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Background Scrolling Dragon -->
+    <div class="scroll-dragon-container">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+            <path id="scroll-dragon-path"
+                d="M500,200 C550,150 600,100 700,100 S800,150 850,200 S900,300 850,400 S750,500 650,450 S550,350 500,400 S450,500 400,600 S300,700 200,650 S100,550 150,450 S250,350 350,400 S450,500 500,600 S600,700 700,650 S800,550 750,450 S650,350 550,400 T350,500 T150,400 T200,250 T400,150 T600,250 T800,150 M850,200 Q860,180 840,170 M850,200 Q840,180 860,170 M200,650 Q190,670 210,680 M200,650 Q210,670 190,680 M700,650 Q690,670 710,680 M700,650 Q710,670 690,680"
+                stroke="var(--neon-blue)" fill="none" stroke-width="2" opacity="0.15" />
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass" style="position: fixed; width: 90%; top: 20px; left: 5%; z-index: 1000; padding: 1rem 2rem;">
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; max-width: 100%;">
+            <a href="#" class="heading-font"
+                style="color: var(--neon-blue); text-decoration: none; font-weight: 900; font-size: 1.5rem;">AS<span
+                    style="color: var(--neon-red);">.</span></a>
+            <div class="nav-links" style="display: flex; gap: 2rem;">
+                <a href="#about"
+                    style="color: #fff; text-decoration: none; text-transform: uppercase; font-family: 'Orbitron'; font-size: 0.8rem;">About</a>
+                <a href="#projects"
+                    style="color: #fff; text-decoration: none; text-transform: uppercase; font-family: 'Orbitron'; font-size: 0.8rem;">Projects</a>
+                <a href="#experience"
+                    style="color: #fff; text-decoration: none; text-transform: uppercase; font-family: 'Orbitron'; font-size: 0.8rem;">Experience</a>
+                <a href="#contact"
+                    style="color: #fff; text-decoration: none; text-transform: uppercase; font-family: 'Orbitron'; font-size: 0.8rem;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero"
+        style="height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+        <div class="dragon-container"
+            style="position: absolute; width: 100%; height: 100%; opacity: 0.15; z-index: -1;">
+            <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" style="width: 100%; height: 100%;">
+                <path id="dragon-path"
+                    d="M500,100 Q600,50 700,100 T800,200 T700,300 T500,250 T300,300 T200,500 T300,700 T500,800 T700,700 T800,500 T700,400 T500,450 T300,400 T200,250 T300,150 T500,200"
+                    stroke="var(--neon-red)" fill="none" stroke-width="3" stroke-linecap="round"
+                    vector-effect="non-scaling-stroke" />
+            </svg>
+        </div>
+        <div class="dragon-tail"></div>
+
+        <div class="container" style="text-align: center;">
+            <div class="hero-content">
+                <p class="kanji-font" style="color: var(--neon-red); font-size: 1.5rem; margin-bottom: 1rem;">革新的な開発者
+                </p>
+                <h1 style="font-size: 5rem; font-weight: 900; color: #fff; line-height: 1.1;">Akshay <span
+                        class="neon-text-blue">Sahu</span></h1>
+                <p class="subtitle"
+                    style="font-size: 1.2rem; color: var(--text-secondary); margin: 1.5rem 0 2.5rem; letter-spacing: 2px;">
+                    AI & Cloud Developer | Hackathon Finalist | Future AI Engineer
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center;">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="japanese-divider reveal">
+                <span>自己紹介</span>
+            </div>
+            <div class="about-grid">
+                <div class="reveal">
+                    <h2 class="heading-font neon-text-red" style="font-size: 2.5rem; margin-bottom: 1.5rem;">The Cyber
+                        <span style="color: #fff;">Vision</span>
+                    </h2>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                        Driven by the fusion of high-tech innovation and disciplined execution. I specialize in building
+                        intelligent AI solutions and robust cloud architectures that push the boundaries of what's
+                        possible.
+                    </p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <i class="fab fa-python tech-icon" title="Python"></i>
+                        <i class="fab fa-js-square tech-icon" title="JavaScript"></i>
+                        <i class="fab fa-aws tech-icon" title="AWS"></i>
+                        <i class="fab fa-docker tech-icon" title="Docker"></i>
+                        <i class="fab fa-git-alt tech-icon" title="Git"></i>
+                    </div>
+                </div>
+                <div class="reveal" style="position: relative; text-align: right;">
+                    <div class="glass"
+                        style="display: inline-block; padding: 2rem; border-left: 4px solid var(--neon-blue); text-align: left; max-width: 400px;">
+                        <h3 class="heading-font" style="color: var(--neon-blue); margin-bottom: 1rem;">Core Philosophy
+                        </h3>
+                        <p style="font-style: italic; color: var(--text-secondary);">
+                            "Code with discipline. Build with vision."
+                        </p>
+                        <p style="margin-top: 1rem; font-family: 'Noto Sans JP'; color: rgba(255,255,255,0.5);">
+                            技術の進歩は、規律ある実行から生まれる。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <div class="japanese-divider reveal">
+                <span>プロジェクト</span>
+            </div>
+            <h2 class="heading-font neon-text-blue reveal" style="text-align: center; margin-bottom: 3rem;">Featured
+                <span style="color: #fff;">Work</span>
+            </h2>
+
+            <div class="projects-grid">
+                <!-- Featured Project -->
+                <div class="project-card project-featured reveal">
+                    <div>
+                        <h3 class="heading-font" style="color: var(--neon-red); font-size: 1.8rem;">ConceptForgeAI</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">AI/ML</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Stable Diffusion</span>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">
+                            A next-generation AI platform that transforms complex conceptual ideas into high-fidelity
+                            visual assets using advanced generative models. Designed for creative workflows and rapid
+                            prototyping.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source</a>
+                        <a href="#" class="project-link" style="color: var(--neon-red);"><i
+                                class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <div>
+                        <h3 class="heading-font">Content_to_scope</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">LLM</span>
+                            <span class="project-tag">Text Analysis</span>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">
+                            Automated tool designed to extract project scopes and requirements from unstructured
+                            content, streamlining the planning phase for developers and project managers.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+                    <div>
+                        <h3 class="heading-font">MasumiGuard</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">Cloud</span>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">
+                            A decentralized security monitoring system designed for cloud-native applications, providing
+                            real-time threat detection and automated response.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal">
+                    <div>
+                        <h3 class="heading-font">InternNova</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Web Dev</span>
+                            <span class="project-tag">React</span>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">
+                            An intelligent internship matching platform that uses AI to connect students with the most
+                            relevant industry opportunities based on their skill sets and career goals.
+                        </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding" style="background: rgba(255, 0, 60, 0.02);">
+        <div class="container">
+            <div class="japanese-divider reveal">
+                <span>経験と実績</span>
+            </div>
+            <h2 class="heading-font neon-text-red reveal" style="text-align: center; margin-bottom: 3rem;">Hackathons &
+                <span style="color: #fff;">Milestones</span>
+            </h2>
+
+            <div class="timeline">
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">2024</p>
+                        <h3 class="heading-font" style="color: var(--neon-blue); font-size: 1.1rem;">Cardano Hackathon
+                            Asia Finalist</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Represented
+                            elite level blockchain development skills in one of Asia's most competitive hackathons.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">2023</p>
+                        <h3 class="heading-font" style="color: var(--neon-blue); font-size: 1.1rem;">Smart India
+                            Hackathon</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Engineered
+                            innovative solutions for national-level problems, demonstrating technical excellence and
+                            teamwork.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">2023</p>
+                        <h3 class="heading-font" style="color: var(--neon-blue); font-size: 1.1rem;">Google Study Jam
+                            Tier 1</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Achieved top
+                            tier status in Google Cloud training, mastering cloud infrastructure and scalable
+                            application design.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">2023</p>
+                        <h3 class="heading-font" style="color: var(--neon-blue); font-size: 1.1rem;">IIT Roorkee
+                            E-Summit</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Engaged with
+                            visionary entrepreneurs and technologists at one of India's premier technical summits.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">Continuous</p>
+                        <h3 class="heading-font" style="color: var(--neon-blue); font-size: 1.1rem;">100 Days of Code
+                        </h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Demonstrated
+                            consistency and discipline in mastering various programming languages and frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <div class="japanese-divider reveal">
+                <span>スキルセット</span>
+            </div>
+            <h2 class="heading-font neon-text-blue reveal" style="text-align: center; margin-bottom: 4rem;">Technical
+                <span style="color: #fff;">Arsenal</span>
+            </h2>
+
+            <div class="skills-container">
+                <div class="skill-category reveal">
+                    <h3 class="heading-font">Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">HTML5/CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3 class="heading-font">Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3 class="heading-font">AI & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">LangChain</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3 class="heading-font">Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="japanese-divider reveal">
+                <span>お問い合わせ</span>
+            </div>
+            <div class="contact-grid">
+                <div class="reveal">
+                    <h2 class="heading-font neon-text-red" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Connect
+                        with <span style="color: #fff;">Me</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Interested in collaboration or have a project in mind? Reach out and let's build something
+                        futuristic together.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:contact@akshaysahu.ai" class="social-icon" title="Email"><i
+                                class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form class="contact-form glass" style="padding: 2.5rem;">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Transmit Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="padding: 6rem 0 3rem; border-top: 1px solid var(--glass-border); text-align: center; position: relative; overflow: hidden;">
+        <div class="container">
+            <h2 class="heading-font" style="font-size: 1.2rem; color: var(--neon-blue); margin-bottom: 1rem;">Akshay
+                Sahu</h2>
+            <p class="footer-tagline">"Code with discipline. Build with vision."</p>
+            <p class="kanji-font"
+                style="color: rgba(255,255,255,0.2); font-size: 1.5rem; letter-spacing: 10px; margin-bottom: 2rem;">
+                規律と先見</p>
+            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 3rem;">
+                &copy; 2024 Akshay Sahu. All rights reserved. <br>
+                Inspired by Cyberpunk & Japanese Aesthetics.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

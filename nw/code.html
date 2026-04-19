@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects: Digital Artifacts - Akshay Sahu</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2", // Electric Blue
+                        "neon-red": "#ff003c", // Cyberpunk Red
+                        "dragon-gold": "#ffd700", // Mythological Gold
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0a0b10", // Deeper dark for cyberpunk contrast
+                        "glass-bg": "rgba(17, 25, 40, 0.75)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'cyber-grid': "radial-gradient(circle at 50% 50%, rgba(13, 89, 242, 0.1) 0%, transparent 50%)",
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for Cyberpunk feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0b10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d59f2;
+        }
+        
+        .glass-card {
+            background: rgba(20, 25, 35, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .neon-border-hover:hover {
+            box-shadow: 0 0 15px rgba(13, 89, 242, 0.3), inset 0 0 10px rgba(13, 89, 242, 0.1);
+            border-color: rgba(13, 89, 242, 0.5);
+        }
+        
+        .neon-border-red-hover:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.3), inset 0 0 10px rgba(255, 0, 60, 0.1);
+            border-color: rgba(255, 0, 60, 0.5);
+        }
+
+        /* Subtle dragon scale pattern overlay */
+        .dragon-texture {
+            background-image: radial-gradient(#1a202c 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-neon-red selection:text-white">
+<div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
+<!-- Background Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neon-red/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+<div class="absolute inset-0 dragon-texture"></div>
+</div>
+<main class="relative z-10 flex-grow flex flex-col items-center py-20 px-6 sm:px-12 lg:px-24">
+<div class="max-w-[1280px] w-full flex flex-col gap-16">
+<!-- Section Header -->
+<header class="flex flex-col gap-4 border-l-4 border-neon-red pl-6 py-2 relative">
+<div class="absolute -left-1 top-0 w-1 h-8 bg-gradient-to-b from-primary to-transparent"></div>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase">
+                        Digital <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Artifacts</span>
+</h2>
+<p class="text-slate-400 max-w-2xl text-lg font-light">
+                        High-performance systems forged in the cloud. A collection of AI, automation, and cybersecurity initiatives.
+                    </p>
+</header>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 @container">
+<!-- Card 1: ConceptForgeAI -->
+<article class="group relative flex flex-col rounded-xl glass-card transition-all duration-300 hover:-translate-y-2 hover:bg-[#1a1f2e] border-t border-slate-800 neon-border-hover overflow-hidden">
+<!-- Image Container -->
+<div class="relative w-full aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#141923] via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Abstract AI neural network visualization in neon blue" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMHhc_FNWmyoOZbLAtphy_VKZLPo8L88ZPqTJehLxI1UDE-71C_sNQNiTfhVFpcbP6aQuvC-svYLXPzk-eevGFPb3rmDlWd7Txedy7mZyQ_rQ2ra2bkSdiQAc4NyGaj7aWo_qimjtRB1z4fdAqlPANBuZDtRw0BMbbuDFpgHwVItuDiR3tKKc4CdyfN45RiRxycyqYc9KOgYYzlKOzuc5qn1_G1fJ9SUbYievm7vXQ0VOCSCAZ6DueJ1Z3zhZzf_Cf-iRmn2UaqcjH");'></div>
+<!-- Status Badge -->
+<div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-black/60 border border-primary/30 backdrop-blur-md">
+<span class="text-xs font-medium text-primary uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                    Deployed
+                                </span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-grow p-6 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Generative Art</p>
+<h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">ConceptForgeAI</h3>
+</div>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                                AI-driven concept generation engine leveraging generative models for rapid prototyping. Optimized for low-latency inference on edge devices.
+                            </p>
+<!-- Tech Stack -->
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">Python</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">TensorFlow</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">React</span>
+</div>
+<!-- Actions Divider -->
+<div class="h-px w-full bg-gradient-to-r from-transparent via-slate-700 to-transparent my-2"></div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-between pt-1">
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-primary transition-colors">code</span>
+                                    Source
+                                </a>
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-primary transition-colors">rocket_launch</span>
+                                    Live Demo
+                                </a>
+</div>
+</div>
+</article>
+<!-- Card 2: Content_to_scope (Red Theme) -->
+<article class="group relative flex flex-col rounded-xl glass-card transition-all duration-300 hover:-translate-y-2 hover:bg-[#1a1f2e] border-t border-slate-800 neon-border-red-hover overflow-hidden">
+<div class="relative w-full aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#141923] via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Digital kanji characters flowing in a red data stream" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3Z-sKdfYkdhM1uGwSTmou_eAofkWyljmg3Mvp56j-tBJ-qbnvoA_uzWY3eNzYIv7SPnC-0wI_L9NjfKGoTlzU1uMuabmlscCE1tZ-Dbqx3lFxZnfazEAK-Q1-x5Zi78mr_CMA0t3MwIE-2cK7e5Uv5fDmhvbFEpm78XaKOZOEWIvqg-yj4ew0s3QIOoKHSnj-pNpKCsjU4wDc6g8CUXAGg7rVfpsAFZiAODOQLs-rQy83mYaXjWvjjsFqjSIT-XCozNxQtyN2kycg");'></div>
+<div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-black/60 border border-neon-red/30 backdrop-blur-md">
+<span class="text-xs font-medium text-neon-red uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-neon-red animate-pulse"></span>
+                                    Beta
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-neon-red text-xs font-bold uppercase tracking-widest mb-1">Automation</p>
+<h3 class="text-2xl font-bold text-white group-hover:text-neon-red transition-colors">Content_to_scope</h3>
+</div>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                                Automated scoping tool converting raw content briefs into actionable project timelines using NLP and heuristic analysis algorithms.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">Node.js</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">OpenAI API</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">Docker</span>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-slate-700 to-transparent my-2"></div>
+<div class="flex items-center justify-between pt-1">
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-neon-red transition-colors">code</span>
+                                    Source
+                                </a>
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-neon-red transition-colors">rocket_launch</span>
+                                    Live Demo
+                                </a>
+</div>
+</div>
+</article>
+<!-- Card 3: MasumiGuard -->
+<article class="group relative flex flex-col rounded-xl glass-card transition-all duration-300 hover:-translate-y-2 hover:bg-[#1a1f2e] border-t border-slate-800 neon-border-hover overflow-hidden">
+<div class="relative w-full aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#141923] via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Cybersecurity shield holographic interface with blue geometric patterns" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA92dSaHYiIdjJDkwBx5G3k28CyOJpZLZxMWjNMywIgH7EQnaXiNV87KsckTL4a8xHtq1nIILBlHQ7XJwQ9I1Q-msg7wJREQ9dnf_ZaCOn4eQ6kGRSuLdo-tB_TbDZDLn3oZxeeG1ONE9qgOHddFCXDYFCKTC_TPD_U33DWO9X5FgL4y9ULQ_wkzIYQPqNL_ApVvzAwNVkUdLT6PRbiApQDrnECmP6BwolExKwuRCfGTe-qM6Di7Z8NC20vCpXhWmXpG30ViZgcnJFW");'></div>
+<div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-black/60 border border-primary/30 backdrop-blur-md">
+<span class="text-xs font-medium text-primary uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                    Active
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Cybersecurity</p>
+<h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">MasumiGuard</h3>
+</div>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                                Real-time intrusion detection system designed for cloud infrastructure. Uses anomaly detection to identify zero-day threats instantly.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">Go</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">AWS Lambda</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">Rust</span>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-slate-700 to-transparent my-2"></div>
+<div class="flex items-center justify-between pt-1">
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-primary transition-colors">code</span>
+                                    Source
+                                </a>
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-primary transition-colors">rocket_launch</span>
+                                    Live Demo
+                                </a>
+</div>
+</div>
+</article>
+<!-- Card 4: InternNova (Red Theme) -->
+<article class="group relative flex flex-col rounded-xl glass-card transition-all duration-300 hover:-translate-y-2 hover:bg-[#1a1f2e] border-t border-slate-800 neon-border-red-hover overflow-hidden">
+<div class="relative w-full aspect-video overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-[#141923] via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Futuristic job board interface with red glowing nodes connecting candidates" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5u3SkF6xaQCTIk1qfid0kKLFY1ljsWtioAomoCXU3p5eBmXqm7FvgopaS4YuKr8LZwbXklAPsgCqD5X8sjUc0okf92HbQg8xrIwoymjFqi1EEO-gwRMuEqKyVUGp7HwuDyFJpk8rr0SG5dJTqWok1APb1uv5JS6F8kAuJPJau_joyQU0R6PhTfV_72SZbDFFUdIULj1kywi_kGNU5wFHe-4sNfzv7kh9xARpdHBV1vDNWQadCcmf0i1pqH_9dW7jYmQzAyx9_9mGR");'></div>
+<div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-black/60 border border-neon-red/30 backdrop-blur-md">
+<span class="text-xs font-medium text-neon-red uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-neon-red animate-pulse"></span>
+                                    V2.0
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-neon-red text-xs font-bold uppercase tracking-widest mb-1">Recruitment AI</p>
+<h3 class="text-2xl font-bold text-white group-hover:text-neon-red transition-colors">InternNova</h3>
+</div>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed flex-grow">
+                                Intelligent internship matching platform that uses skill-graphing to connect students with startups in the decentralized web ecosystem.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">TypeScript</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">GraphQL</span>
+<span class="px-2 py-1 text-xs font-medium text-dragon-gold bg-dragon-gold/10 border border-dragon-gold/20 rounded">Postgres</span>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-slate-700 to-transparent my-2"></div>
+<div class="flex items-center justify-between pt-1">
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-neon-red transition-colors">code</span>
+                                    Source
+                                </a>
+<a class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium group/link" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover/link:text-neon-red transition-colors">rocket_launch</span>
+                                    Live Demo
+                                </a>
+</div>
+</div>
+</article>
+</div>
+<!-- Minimal Brush Stroke Divider -->
+<div class="w-full flex justify-center mt-12 opacity-40">
+<svg fill="none" height="20" viewbox="0 0 200 20" width="200" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 10C35 4 80 18 198 2" stroke="url(#paint0_linear)" stroke-linecap="round" stroke-width="2"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="2" x2="198" y1="10" y2="10">
+<stop stop-color="#0d59f2" stop-opacity="0"></stop>
+<stop offset="0.5" stop-color="#0d59f2"></stop>
+<stop offset="1" stop-color="#0d59f2" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+</main>
+</div>
+</body></html>
